@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -13,5 +12,9 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
+        $dataView = [
+            'title_page' => 'Bảng điều khiển',
+        ];
+        return view("backend.page.dashboard.index", $dataView);
     }
 }

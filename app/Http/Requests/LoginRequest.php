@@ -3,15 +3,23 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class LoginRequest extends FormRequest
 {
+    public function validate()
+    {
+        $instance = $this->getValidatorInstance();
+        if ($instance->fails()) {
+            throw new HttpResponseException(response()->json($instance->errors(), 422));
+        }
+    }
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +30,17 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'Vui lòng nhập địa chỉ email.',
+            'email.email' => 'Địa chỉ email không hợp lệ.',
+            'password.required' => 'Vui lòng nhập mật khẩu.',
         ];
     }
 }

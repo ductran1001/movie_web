@@ -38,4 +38,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    const ROLE_USER = 1;
+    const ROLE_ADMIN = 2;
 }
