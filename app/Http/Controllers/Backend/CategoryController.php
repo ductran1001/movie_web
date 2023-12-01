@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $dataView = [
+            'title_page' => 'Danh mục phim',
+        ];
+        return view('backend.page.category.index', $dataView);
     }
 
     /**
@@ -20,7 +26,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $dataView = [
+            'title_page' => 'Tạo mới phim',
+        ];
+        return view('backend.page.category.create', $dataView);
     }
 
     /**

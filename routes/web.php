@@ -74,5 +74,14 @@ Route::group(['prefix' => 'admin'], function () {
             'update' => 'admin.movies.update',
             'destroy' => 'admin.movies.destroy',
         ]);
+
+        Route::resource('cai-dat', BackendController\MovieController::class)->names([
+            'index' => 'admin.movies.index',
+            'create' => 'admin.movies.create',
+            'store' => 'admin.movies.store',
+            'edit' => 'admin.movies.edit',
+            'update' => 'admin.movies.update',
+            'destroy' => 'admin.movies.destroy',
+        ]);
     });
 });
