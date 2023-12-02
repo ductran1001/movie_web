@@ -49,13 +49,14 @@ const handleFormErrors = (response) => {
 $(document).ready(function () {
     $('body').on('click', '#delete-action', function () {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            title: "Bạn chắc chứ?",
+            text: "Hành động này sẽ không thể hoàn tác!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Vâng, xóa nó đi!",
+            cancelButtonText: "Hủy bỏ"
         }).then((result) => {
             if (result.isConfirmed) {
                 let url = $(this).data('url');
@@ -73,15 +74,15 @@ $(document).ready(function () {
                     processData: false,
                     success: function (response) {
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
+                            title: "Đã xóa!",
+                            text: "Tập tin của bạn đã bị xóa.",
                             icon: "success"
                         });
                         table.row(tr).remove().draw(false);
                     },
                     error: function (response) {
                         Swal.fire({
-                            title: "Error!",
+                            title: "Lỗi!",
                             text: response.responseJSON.msg,
                             icon: "error"
                         });

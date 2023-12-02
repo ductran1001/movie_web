@@ -3,15 +3,23 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CategoryRequest extends FormRequest
 {
+    public function validate()
+    {
+        $instance = $this->getValidatorInstance();
+        if ($instance->fails()) {
+            throw new HttpResponseException(response()->json($instance->errors(), 422));
+        }
+    }
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +30,16 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:categories,slug,' . request()->route('category'),
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Vui lòng tiêu đề.',
+            'slug.required' => 'Vui lòng đường dẫn.',
         ];
     }
 }

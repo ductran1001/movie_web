@@ -27,6 +27,7 @@
     <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <style>
         .bd-placeholder-img {
@@ -70,16 +71,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="{{ asset('backend/js/dashboard.js') }}"></script>
+    <script src="{{ asset('backend/js/change-to-slug.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="{{ asset('backend/js/toastr-options.js') }}"></script>
-    
+
     @if (session('error'))
         <script>
             toastr.error('{{ session('error') }}');
         </script>
     @endif
+
 
     @stack('js_admin')
 </body>

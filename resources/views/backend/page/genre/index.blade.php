@@ -1,10 +1,10 @@
 @extends('backend.layout.main_admin')
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Danh sách danh mục</h1>
+        <h1 class="h2">Danh sách thể loại</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <a href="{{ route('admin.categories.create') }}" class="btn btn-sm btn-outline-secondary">
+                <a href="{{ route('admin.genres.create') }}" class="btn btn-sm btn-outline-secondary">
                     <span data-feather="plus"></span>
                     Tạo mới
                 </a>
@@ -24,18 +24,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categories as $index => $category)
+                @foreach ($genres as $index => $genre)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $category['title'] }} </td>
-                        <td>{{ $category['description'] ?? '[N/A]' }} </td>
-                        <td>{{ $category['created_at']->format('d/m/Y') }} </td>
+                        <td>{{ $genre['title'] }} </td>
+                        <td>{{ $genre['description'] ?? '[N/A]' }} </td>
+                        <td>{{ $genre['created_at']->format('d/m/Y') }} </td>
                         <td class="d-flex gap-3">
-                            <a href="{{ route('admin.categories.edit', $category['id']) }}" class="text-decoration-none">
+                            <a href="{{ route('admin.genres.edit', $genre['id']) }}" class="text-decoration-none">
                                 <span class="text-warning" data-feather="edit"></span>
                             </a>
                             <a href="javascript:void(0)" id="delete-action"
-                                data-url="{{ route('admin.categories.destroy', $category['id']) }}">
+                                data-url="{{ route('admin.genres.destroy', $genre['id']) }}">
                                 <span class="text-danger" data-feather="x"></span>
                             </a>
                         </td>
