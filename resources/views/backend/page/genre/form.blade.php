@@ -1,13 +1,13 @@
 @php
     $action = isset($genre) ? route('admin.genres.update', $genre['id']) : route('admin.genres.store');
-    $redirect = route('admin.genres.index');
     $title = isset($genre) ? $genre['title'] : '';
     $slug = isset($genre) ? $genre['slug'] : '';
     $description = isset($genre) ? $genre['description'] : '';
-    $text_button = isset($genre) ? 'Cập nhập' : 'Tạo mới';
+    $index = route('admin.categories.index');
+    $create = route('admin.categories.create');
 @endphp
 
-<form id="do-form" class="row g-5" action="{{ $action }}" method="POST" redirect="{{ $redirect }}">
+<form id="do-form" class="row g-5" action="{{ $action }}" method="POST">
     @csrf
     @isset($genre)
         @method('PUT')
@@ -49,9 +49,16 @@
         </div>
     </div>
 
-    <div class="col-md-7 col-lg-8 mt-lg-0">
-        <button class="w-100 btn btn-primary btn-lg">
-            {{ $text_button }}
+    <div class="col-md-7 col-lg-8 mt-lg-0 d-flex g-5 justify-content-between">
+        <button name="save" value="{{ $index }}" style="{{ isset($genre) ? 'width: 100%' : 'width: 48%' }}"
+            class="btn btn-primary btn-lg">
+            Lưu
         </button>
+
+        @if (!isset($genre))
+            <button name="save" value="{{ $create }}" style="width: 48%" class="btn btn-secondary btn-lg">
+                Lưu và tiếp tục
+            </button>
+        @endif
     </div>
 </form>

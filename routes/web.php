@@ -2,21 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend as BackendController;
+use App\Http\Controllers\Frontend as FrontendController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController\HomeController::class, 'home'])->name('home');
+Route::get('/danh-muc/{slug}', [FrontendController\CategoryController::class, 'categorySlug'])->name('category.slug');
+Route::get('/the-loai/{slug}', [FrontendController\GenreController::class, 'genre'])->name('genre');
+Route::get('/quoc-gia/{slug}', [FrontendController\CountryController::class, 'country'])->name('country');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dang-nhap', [BackendController\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.login');

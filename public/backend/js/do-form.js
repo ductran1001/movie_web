@@ -4,21 +4,22 @@ $(function () {
         e.preventDefault();
         let url = doForm.attr('action');
         let type = doForm.attr('method');
-        let redirect = doForm.attr('redirect');
-        $(".error-message").remove();
+        let actionNext = doForm.find("button:focus").val();
         let elements = $(".text-danger, .is-invalid");
+        
+        $(".error-message").remove();
         elements.removeClass("text-danger").removeClass("is-invalid");
-        let status = doForm.find("button:focus");
-        if (status.val()) {
-            doForm.append(`<input type="hidden" name="status" value="${status.val()}" />`);
-        }
-
+ 
         $.ajax({
             url: url,
             type: type,
             data: doForm.serialize(),
             success: function (response) {
-                window.location.href = redirect;
+                if(actionNext.includes('create')){
+                    doForm.trigger("reset");
+                }else{
+                    window.location.href = actionNext;
+                }
                 toastr.success(response.msg);
             },
             error: function (response) {
