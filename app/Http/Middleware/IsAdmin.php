@@ -25,6 +25,7 @@ class IsAdmin
         $user = auth()->user();
 
         if ($user && $user->role !== User::ROLE_ADMIN) {
+            \Auth::logout();
             return redirect()->route('admin.login')->with('error', 'Bạn không có quyền truy cập.');
         }
 

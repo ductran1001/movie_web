@@ -9,6 +9,7 @@ Route::get('/', [FrontendController\HomeController::class, 'home'])->name('home'
 Route::get('/danh-muc/{slug}', [FrontendController\CategoryController::class, 'categorySlug'])->name('category.slug');
 Route::get('/the-loai/{slug}', [FrontendController\GenreController::class, 'genre'])->name('genre');
 Route::get('/quoc-gia/{slug}', [FrontendController\CountryController::class, 'country'])->name('country');
+Route::get('/phim/{slug}', [FrontendController\MovieController::class, 'movieSlug'])->name('movie.slug');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dang-nhap', [BackendController\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.login');

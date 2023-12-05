@@ -6,7 +6,7 @@
 @extends('backend.layout.main_auth')
 @section('content')
     <main class="form-signin">
-        <form id="do-form" action="{{ $action }}" method="POST" redirect="{{ $redirect }}">
+        <form id="do-form" action="{{ $action }}" method="POST">
             @csrf
 
             <img class="mb-4" src="{{ config('site_config')['logo_admin'] }}" alt="" width="72" height="57">
@@ -35,7 +35,9 @@
                 </label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Đăng nhập</button>
+            <button name="save" value="{{ $redirect }}" class="w-100 btn btn-lg btn-primary">
+                Đăng nhập
+            </button>
 
             <p class="mt-4 mb-0 text-muted">&copy; 2017–2021</p>
         </form>

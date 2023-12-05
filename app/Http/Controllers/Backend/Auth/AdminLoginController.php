@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AdminLoginController extends Controller
@@ -22,24 +21,24 @@ class AdminLoginController extends Controller
             'title_page' => 'Đăng nhập',
         ];
 
-        return Auth::check() ? redirect()->route('admin.dashboard') : view('backend.page.auth.login', $dataView);
+        return \Auth::check() ? redirect()->route('admin.dashboard') : view('backend.page.auth.login', $dataView);
     }
 
     public function login(LoginRequest $request)
     {
         $credentials = $request->only(['email', 'password']);
 
-        if (!Auth::attempt($credentials)) {
+        if (!\Auth::attempt($credentials)) {
             return response()->json([
                 "status" => false,
                 'msg' => 'Địa chỉ email hoặc mật khẩu không đúng.'
             ], 500);
         }
 
-        $user = Auth::user();
+        $user = \Auth::user();
 
         if ($user->role === User::ROLE_USER) {
-            Auth::logout();
+            \Auth::logout();
             return response()->json([
                 "status" => false,
                 'msg' => 'Bạn không có quyền truy cập.'
@@ -55,7 +54,7 @@ class AdminLoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        \Auth::logout();
 
         $request->session()->invalidate();
 
