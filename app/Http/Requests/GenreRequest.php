@@ -31,7 +31,7 @@ class GenreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:categories,slug,' . request()->route('category'),
+            'slug' => 'required|string|max:255|unique:genres,slug,' . request()->route('genre'),
         ];
     }
 

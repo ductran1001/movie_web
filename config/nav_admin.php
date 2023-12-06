@@ -38,12 +38,12 @@ return [
         "link" => "admin.movies.index",
         "active" => "movies",
     ],
-    [
-        "title" => "Cài đặt trang",
-        "icon" => "settings",
-        "link" => "admin.movies.index",
-        "active" => "movies",
-    ],
+    // [
+    //     "title" => "Cài đặt trang",
+    //     "icon" => "settings",
+    //     "link" => "admin.movies.index",
+    //     "active" => "movies",
+    // ],
     [
         "title" => "Thoát",
         "icon" => "log-out",
