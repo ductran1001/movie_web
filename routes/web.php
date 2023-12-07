@@ -21,9 +21,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 
     Route::middleware(['isAdmin'])->group(function () {
-        Route::get('bang-dieu-khien', [BackendController\DashboardController::class, 'dashboard'])->name('admin.dashboard');
+        Route::get('dashboard', [BackendController\DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
-        Route::resource('thanh-vien', BackendController\MemberController::class)->names([
+        Route::resource('member', BackendController\MemberController::class)->names([
             'index' => 'admin.members.index',
             'create' => 'admin.members.create',
             'store' => 'admin.members.store',
@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
             'destroy' => 'admin.members.destroy',
         ]);
 
-        Route::resource('danh-muc', BackendController\CategoryController::class)->names([
+        Route::resource('category', BackendController\CategoryController::class)->names([
             'index' => 'admin.categories.index',
             'create' => 'admin.categories.create',
             'store' => 'admin.categories.store',
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
             'destroy' => 'admin.categories.destroy',
         ]);
 
-        Route::resource('quoc-gia', BackendController\CountryController::class)->names([
+        Route::resource('countries', BackendController\CountryController::class)->names([
             'index' => 'admin.countries.index',
             'create' => 'admin.countries.create',
             'store' => 'admin.countries.store',
@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin'], function () {
             'destroy' => 'admin.countries.destroy',
         ]);
 
-        Route::resource('the-loai', BackendController\GenreController::class)->names([
+        Route::resource('genre', BackendController\GenreController::class)->names([
             'index' => 'admin.genres.index',
             'create' => 'admin.genres.create',
             'store' => 'admin.genres.store',
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admin'], function () {
             'destroy' => 'admin.genres.destroy',
         ]);
 
-        Route::resource('phim', BackendController\MovieController::class)->names([
+        Route::resource('movie', BackendController\MovieController::class)->names([
             'index' => 'admin.movies.index',
             'create' => 'admin.movies.create',
             'store' => 'admin.movies.store',
@@ -68,13 +68,13 @@ Route::group(['prefix' => 'admin'], function () {
             'destroy' => 'admin.movies.destroy',
         ]);
 
-        Route::resource('cai-dat', BackendController\MovieController::class)->names([
-            'index' => 'admin.movies.index',
-            'create' => 'admin.movies.create',
-            'store' => 'admin.movies.store',
-            'edit' => 'admin.movies.edit',
-            'update' => 'admin.movies.update',
-            'destroy' => 'admin.movies.destroy',
-        ]);
+        // Route::resource('cai-dat', BackendController\MovieController::class)->names([
+        //     'index' => 'admin.movies.index',
+        //     'create' => 'admin.movies.create',
+        //     'store' => 'admin.movies.store',
+        //     'edit' => 'admin.movies.edit',
+        //     'update' => 'admin.movies.update',
+        //     'destroy' => 'admin.movies.destroy',
+        // ]);
     });
 });

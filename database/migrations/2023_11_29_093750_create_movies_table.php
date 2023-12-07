@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('abums')->nullable();
             $table->tinyInteger('status')->default(0);
-            $table->integer('category_id')->default(0);
-            $table->integer('country_id')->default(0);
-            $table->integer('genre_id')->default(0);
+            $table->integer('category_id');
+            $table->integer('country_id');
+            $table->integer('genre_id');
             $table->timestamps();
         });
     }

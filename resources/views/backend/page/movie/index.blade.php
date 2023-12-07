@@ -19,6 +19,9 @@
                     <th scope="col">#</th>
                     <th scope="col">Tiêu đề</th>
                     <th scope="col">Mô tả ngắn</th>
+                    <th scope="col">Danh mục</th>
+                    <th scope="col">Quốc gia</th>
+                    <th scope="col">Thể loại</th>
                     <th scope="col">Ngày tạo</th>
                     <th scope="col">Sửa-Xóa</th>
                 </tr>
@@ -26,11 +29,20 @@
             <tbody>
                 @foreach ($movies as $index => $movie)
                     <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ $movie['title'] }} </td>
-                        <td>{{ $movie['description'] ?? '[N/A]' }} </td>
-                        <td>{{ $movie['created_at']->format('d/m/Y') }} </td>
+                        <td class="align-middle">{{ $index + 1 }}</td>
                         <td class="d-flex gap-3">
+                            <img style="width: 50px;height: 50px;object-fit:cover;border-radius: 50%;"
+                                src="{{ $movie['thumbnail'] }}" alt="{{ $movie['title'] }}">
+                            <span class="my-auto">
+                                {{ $movie['title'] }}
+                            </span>
+                        </td>
+                        <td class="align-middle">{{ $movie['description'] ?? '[N/A]' }} </td>
+                        <td class="align-middle">{{ $movie['category']['title'] }} </td>
+                        <td class="align-middle">{{ $movie['country']['title'] }} </td>
+                        <td class="align-middle">{{ $movie['genre']['title'] }} </td>
+                        <td class="align-middle">{{ $movie['created_at']->format('d/m/Y') }} </td>
+                        <td class="align-middle">
                             <a href="{{ route('admin.movies.edit', $movie['id']) }}" class="text-decoration-none">
                                 <span class="text-warning" data-feather="edit"></span>
                             </a>

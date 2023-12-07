@@ -16,4 +16,8 @@
 @stop
 @push('js_admin')
     <script src="{{ asset('backend/js/do-form.js') }}"></script>
+    <script src="{{ asset('/vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+    <script>
+        $('#lfm').filemanager('image');
+    </script>
 @endpush
