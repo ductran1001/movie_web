@@ -9,27 +9,17 @@
                         <span></span>
                     </button>
 
-                    <a href="index.html" class="header__logo">
+                    <a href="/" class="header__logo">
                         <img src="https://flixtv.volkovdesign.com/main/img/logo.svg"
                             alt="Movies & TV Shows, Online cinema HTML Template">
                     </a>
 
                     <ul class="header__nav">
                         <li class="header__nav-item">
-                            <a class="header__nav-link" href="#" role="button" id="dropdownMenu2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home <svg
-                                    width="4" height="4" viewBox="0 0 4 4" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M1.93893 3.30334C1.08141 3.30334 0.384766 2.60669 0.384766 1.75047C0.384766 0.894254 1.08141 0.196308 1.93893 0.196308C2.79644 0.196308 3.49309 0.894254 3.49309 1.75047C3.49309 2.60669 2.79644 3.30334 1.93893 3.30334Z" />
-                                </svg></a>
-
-                            <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenu2">
-                                <li><a href="index.html">Home style 1</a></li>
-                            </ul>
+                            <a class="header__nav-link" href="/">Trang chủ</a>
                         </li>
                         <li class="header__nav-item">
-                            <a class="header__nav-link" href="#" role="button" id="dropdownMenu1"
+                            <a class="header__nav-link" href="#" role="button" id="dropdownMenuCategory"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục <svg
                                     width="4" height="4" viewBox="0 0 4 4" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -37,36 +27,53 @@
                                         d="M1.93893 3.30334C1.08141 3.30334 0.384766 2.60669 0.384766 1.75047C0.384766 0.894254 1.08141 0.196308 1.93893 0.196308C2.79644 0.196308 3.49309 0.894254 3.49309 1.75047C3.49309 2.60669 2.79644 3.30334 1.93893 3.30334Z" />
                                 </svg></a>
 
-                            <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="{{ route('category.slug', 'danh-muc-test') }}">Danh mục 1</a></li>
-                                <li><a href="{{ route('category.slug', 'danh-muc-test') }}">Danh mục 2</a></li>
+                            <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenuCategory">
+                                @foreach ($categories as $category)
+                                    <li>
+                                        <a href="{{ route('category.slug', $category['slug']) }}">
+                                            {{ $category['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="header__nav-item">
-                            <a class="header__nav-link header__nav-link--live" href="live.html">LIVE<svg width="12"
-                                    height="12" viewBox="0 0 12 12" fill="none"
+                            <a class="header__nav-link" href="#" role="button" id="dropdownMenuCountry"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quốc gia <svg
+                                    width="4" height="4" viewBox="0 0 4 4" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="6" cy="4" r="4" fill="#EB5757" fill-opacity="0.5" />
-                                    <g filter="url(#filter0_d)">
-                                        <circle cx="6" cy="4" r="2" fill="#EB5757" />
-                                    </g>
-                                    <defs>
-                                        <filter id="filter0_d" x="0" y="0" width="12" height="12"
-                                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                            <feColorMatrix in="SourceAlpha" type="matrix"
-                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                                            <feOffset dy="2" />
-                                            <feGaussianBlur stdDeviation="2" />
-                                            <feColorMatrix type="matrix"
-                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0" />
-                                            <feBlend mode="normal" in2="BackgroundImageFix"
-                                                result="effect1_dropShadow" />
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow"
-                                                result="shape" />
-                                        </filter>
-                                    </defs>
+                                    <path
+                                        d="M1.93893 3.30334C1.08141 3.30334 0.384766 2.60669 0.384766 1.75047C0.384766 0.894254 1.08141 0.196308 1.93893 0.196308C2.79644 0.196308 3.49309 0.894254 3.49309 1.75047C3.49309 2.60669 2.79644 3.30334 1.93893 3.30334Z" />
                                 </svg></a>
+
+                            <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenuCountry">
+                                @foreach ($countries as $country)
+                                    <li>
+                                        <a href="{{ route('country.slug', $country['slug']) }}">
+                                            {{ $country['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" href="#" role="button" id="dropdownMenuGenre"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thể loại <svg
+                                    width="4" height="4" viewBox="0 0 4 4" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.93893 3.30334C1.08141 3.30334 0.384766 2.60669 0.384766 1.75047C0.384766 0.894254 1.08141 0.196308 1.93893 0.196308C2.79644 0.196308 3.49309 0.894254 3.49309 1.75047C3.49309 2.60669 2.79644 3.30334 1.93893 3.30334Z" />
+                                </svg></a>
+
+                            <ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenuGenre">
+                                @foreach ($genres as $genre)
+                                    <li>
+                                        <a href="{{ route('genre.slug', $genre['slug']) }}">
+                                            {{ $genre['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </li>
                     </ul>
 

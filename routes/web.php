@@ -7,17 +7,17 @@ use App\Http\Controllers\Frontend as FrontendController;
 
 Route::get('/', [FrontendController\HomeController::class, 'home'])->name('home');
 Route::get('/danh-muc/{slug}', [FrontendController\CategoryController::class, 'categorySlug'])->name('category.slug');
-Route::get('/the-loai/{slug}', [FrontendController\GenreController::class, 'genre'])->name('genre');
-Route::get('/quoc-gia/{slug}', [FrontendController\CountryController::class, 'country'])->name('country');
+Route::get('/the-loai/{slug}', [FrontendController\GenreController::class, 'genre'])->name('genre.slug');
+Route::get('/quoc-gia/{slug}', [FrontendController\CountryController::class, 'country'])->name('country.slug');
 Route::get('/phim/{slug}', [FrontendController\MovieController::class, 'movieSlug'])->name('movie.slug');
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('dang-nhap', [BackendController\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('dang-nhap', [BackendController\Auth\AdminLoginController::class, 'login'])->name('admin.login.submit');
-    Route::get('dang-xuat', [BackendController\Auth\AdminLoginController::class, 'logout'])->name('admin.logout');
+    Route::get('login', [BackendController\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('login', [BackendController\Auth\AdminLoginController::class, 'login'])->name('admin.login.submit');
+    Route::get('logout', [BackendController\Auth\AdminLoginController::class, 'logout'])->name('admin.logout');
 
-    Route::get('dang-ky', [BackendController\Auth\AdminRegisterController::class, 'showRegistrationForm'])->name('admin.register');
-    Route::post('dang-ky', [BackendController\Auth\AdminRegisterController::class, 'register'])->name('admin.register.submit');
+    Route::get('register', [BackendController\Auth\AdminRegisterController::class, 'showRegistrationForm'])->name('admin.register');
+    Route::post('register', [BackendController\Auth\AdminRegisterController::class, 'register'])->name('admin.register.submit');
 
 
     Route::middleware(['isAdmin'])->group(function () {

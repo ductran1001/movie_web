@@ -82,8 +82,8 @@
                         <i class="fa fa-picture-o"></i> Hình ảnh
                     </a>
                 </span>
-                <input readonly value="{{ isset($movie['thumbnail']) ? $movie['thumbnail'] : '' }}" id="thumbnail"
-                    class="form-control" type="text" name="thumbnail">
+                <input style="width: 73%" readonly value="{{ isset($movie['thumbnail']) ? $movie['thumbnail'] : '' }}"
+                    id="thumbnail" class="form-control" type="text" name="thumbnail">
             </div>
             @if (isset($movie['thumbnail']))
                 <div id="holder_photo" style="margin-top:15px;max-height:100px;">
