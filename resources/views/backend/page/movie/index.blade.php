@@ -32,8 +32,8 @@
                     <tr>
                         <td class="align-middle">{{ $index + 1 }}</td>
                         <td class="d-flex gap-3">
-                            <img style="width: 50px;height: 50px;object-fit:cover;border-radius: 50%;"
-                                src="{{ $movie['thumbnail'] }}" alt="{{ $movie['title'] }}">
+                            <img style="width: 80px;object-fit:cover;border-radius: 50%;" src="{{ $movie['thumbnail'] }}"
+                                alt="{{ $movie['title'] }}">
                             <span class="my-auto">
                                 {{ $movie['title'] }}
                             </span>

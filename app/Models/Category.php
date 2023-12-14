@@ -12,4 +12,9 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $guarded = [''];
+
+    public function movies()
+    {
+        return $this->hasMany(Movie::class, 'category_id');
+    }
 }
