@@ -2,9 +2,10 @@
     $action = isset($genre) ? route('admin.genres.update', $genre['id']) : route('admin.genres.store');
     $title = isset($genre) ? $genre['title'] : '';
     $slug = isset($genre) ? $genre['slug'] : '';
+    $status = isset($genre) ? $genre['status'] : 1;
     $description = isset($genre) ? $genre['description'] : '';
-    $index = route('admin.categories.index');
-    $create = route('admin.categories.create');
+    $index = route('admin.genres.index');
+    $create = route('admin.genres.create');
 @endphp
 
 <form id="do-form" class="row g-5" action="{{ $action }}" method="POST">
@@ -29,6 +30,22 @@
                     </label>
                     <input value="{{ $slug }}" id="slug" type="text" name="slug"class="form-control"
                         placeholder="Đường dẫn...">
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">
+                        Trạng thái
+                    </label>
+                    <div class="form-check">
+                        <input {{ $status == 1 ? 'checked' : '' }} name="status" id="check" value="1"
+                            type="radio" class="form-check-input">
+                        <label for="check" class="form-check-label">Hiển thị</label>
+                    </div>
+                    <div class="form-check">
+                        <input {{ $status == 0 ? 'checked' : '' }} name="status" id="uncheck" value="0"
+                            type="radio" class="form-check-input">
+                        <label class="form-check-label" for="uncheck">Không hiển thị</label>
+                    </div>
                 </div>
 
                 <div class="col-12">

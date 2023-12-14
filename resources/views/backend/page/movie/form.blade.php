@@ -2,6 +2,7 @@
     $action = isset($movie) ? route('admin.movies.update', $movie['id']) : route('admin.movies.store');
     $title = isset($movie) ? $movie['title'] : '';
     $slug = isset($movie) ? $movie['slug'] : '';
+    $status = isset($movie) ? $movie['status'] : 1;
     $description = isset($movie) ? $movie['description'] : '';
     $content = isset($movie) ? $movie['content'] : '';
     $index = route('admin.movies.index');
@@ -30,6 +31,22 @@
                     </label>
                     <input value="{{ $slug }}" id="slug" type="text" name="slug"class="form-control"
                         placeholder="Đường dẫn...">
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">
+                        Trạng thái
+                    </label>
+                    <div class="form-check">
+                        <input {{ $status == 1 ? 'checked' : '' }} name="status" id="check" value="1"
+                            type="radio" class="form-check-input">
+                        <label for="check" class="form-check-label">Hiển thị</label>
+                    </div>
+                    <div class="form-check">
+                        <input {{ $status == 0 ? 'checked' : '' }} name="status" id="uncheck" value="0"
+                            type="radio" class="form-check-input">
+                        <label class="form-check-label" for="uncheck">Không hiển thị</label>
+                    </div>
                 </div>
 
                 <div class="col-12">

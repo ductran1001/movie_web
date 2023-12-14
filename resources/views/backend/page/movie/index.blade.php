@@ -19,6 +19,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Tiêu đề</th>
                     <th scope="col">Mô tả ngắn</th>
+                    <th scope="col">Trạng thái</th>
                     <th scope="col">Danh mục</th>
                     <th scope="col">Quốc gia</th>
                     <th scope="col">Thể loại</th>
@@ -38,6 +39,7 @@
                             </span>
                         </td>
                         <td class="align-middle">{{ $movie['description'] ?? '[N/A]' }} </td>
+                        <td class="align-middle">{{ $movie['status'] == 1 ? 'hiển thị' : 'không hiển thị' }} </td>
                         <td class="align-middle">{{ $movie['category']['title'] }} </td>
                         <td class="align-middle">{{ $movie['country']['title'] }} </td>
                         <td class="align-middle">{{ $movie['genre']['title'] }} </td>

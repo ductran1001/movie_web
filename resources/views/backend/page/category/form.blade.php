@@ -2,6 +2,7 @@
     $action = isset($category) ? route('admin.categories.update', $category['id']) : route('admin.categories.store');
     $title = isset($category) ? $category['title'] : '';
     $slug = isset($category) ? $category['slug'] : '';
+    $status = isset($category) ? $category['status'] : 1;
     $description = isset($category) ? $category['description'] : '';
     $index = route('admin.categories.index');
     $create = route('admin.categories.create');
@@ -27,8 +28,24 @@
                     <label for="slug" class="form-label">
                         Đường dẫn
                     </label>
-                    <input value="{{ $slug }}" id="slug" type="text" name="slug"class="form-control"
+                    <input value="{{ $slug }}" id="slug" type="text" name="slug" class="form-control"
                         placeholder="Đường dẫn...">
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">
+                        Trạng thái
+                    </label>
+                    <div class="form-check">
+                        <input {{ $status == 1 ? 'checked' : '' }} name="status" id="check" value="1"
+                            type="radio" class="form-check-input">
+                        <label for="check" class="form-check-label">Hiển thị</label>
+                    </div>
+                    <div class="form-check">
+                        <input {{ $status == 0 ? 'checked' : '' }} name="status" id="uncheck" value="0"
+                            type="radio" class="form-check-input">
+                        <label class="form-check-label" for="uncheck">Không hiển thị</label>
+                    </div>
                 </div>
 
                 <div class="col-12">

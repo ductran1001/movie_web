@@ -6,18 +6,23 @@ $(function () {
         let type = doForm.attr('method');
         let actionNext = doForm.find("button:focus").val();
         let elements = $(".text-danger, .is-invalid");
-        
+
+        let selectedStatus = $('input[name="status"]:checked').val();
+
         $(".error-message").remove();
         elements.removeClass("text-danger").removeClass("is-invalid");
- 
+
+        let formData = doForm.serialize();
+        formData += `&status=${selectedStatus}`;
+
         $.ajax({
             url: url,
             type: type,
-            data: doForm.serialize(),
+            data: formData,
             success: function (response) {
-                if(actionNext.includes('create')){
+                if (actionNext.includes('create')) {
                     doForm.trigger("reset");
-                }else{
+                } else {
                     window.location.href = actionNext;
                 }
                 toastr.success(response.msg);

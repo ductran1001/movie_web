@@ -19,6 +19,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Tiêu đề</th>
                     <th scope="col">Mô tả ngắn</th>
+                    <th scope="col">Trạng thái</th>
                     <th scope="col">Ngày tạo</th>
                     <th scope="col">Sửa-Xóa</th>
                 </tr>
@@ -29,6 +30,7 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $country['title'] }} </td>
                         <td>{{ $country['description'] ?? '[N/A]' }} </td>
+                        <td>{{ $country['status'] == 1 ? 'hiển thị' : 'không hiển thị' }} </td>
                         <td>{{ $country['created_at']->format('d/m/Y') }} </td>
                         <td class="d-flex gap-3">
                             <a href="{{ route('admin.countries.edit', $country['id']) }}" class="text-decoration-none">
