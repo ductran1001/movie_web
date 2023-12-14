@@ -11,5 +11,5 @@ class Country extends Model
 
     protected $table = 'countries';
 
-    protected $guarded = [];
+    protected $guarded = [''];
 }

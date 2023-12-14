@@ -32,6 +32,7 @@ class MovieRequest extends FormRequest {
             'country_id' => 'required|integer',
             'genre_id' => 'required|integer',
             'thumbnail' => 'required',
+            'abums' => 'required',
         ];
     }
 
@@ -46,6 +47,7 @@ class MovieRequest extends FormRequest {
             'country_id.integer' => 'Vui lòng quốc gia.',
             'genre_id.integer' => 'Vui lòng thể loại.',
             'thumbnail.required' => 'Vui lòng ảnh.',
+            'abums.required' => 'Vui lòng ảnh abums.',
         ];
     }
 }

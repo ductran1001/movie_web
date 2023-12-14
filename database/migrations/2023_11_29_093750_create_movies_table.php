@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('description')->nullable();
-            $table->string('thumbnail')->nullable();
-            $table->string('abums')->nullable();
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
+            $table->text('thumbnail')->nullable();
+            $table->text('abums')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->integer('category_id');
             $table->integer('country_id');

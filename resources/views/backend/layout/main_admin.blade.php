@@ -82,7 +82,6 @@
         </script>
     @endif
 
-
     @stack('js_admin')
 </body>
 

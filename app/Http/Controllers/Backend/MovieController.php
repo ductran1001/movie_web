@@ -9,13 +9,16 @@ use App\Models\Country;
 use App\Models\Genre;
 use App\Models\Movie;
 
-class MovieController extends Controller {
-    public function __construct() {
+class MovieController extends Controller
+{
+    public function __construct()
+    {
     }
     /**
      * Display a listing of the resource.
      */
-    public function index() {
+    public function index()
+    {
         $movies = Movie::with('category', 'country', 'genre')->orderBy('created_at', 'desc')->get() ?? [];
 
         $dataView = [
@@ -29,7 +32,8 @@ class MovieController extends Controller {
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {
+    public function create()
+    {
         $categories = Category::orderBy('created_at', 'desc')->get() ?? [];
         $countries = Country::orderBy('created_at', 'desc')->get() ?? [];
         $genres = Genre::orderBy('created_at', 'desc')->get() ?? [];
@@ -47,9 +51,13 @@ class MovieController extends Controller {
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MovieRequest $request) {
+    public function store(MovieRequest $request)
+    {
         try {
-            Movie::create($request->all());
+            $data = $request->all();
+            $abums = explode(',', $data['abums']);
+            $data['abums'] = json_encode($abums);
+            Movie::create($data);
             return response()->json([
                 "status" => true,
                 'msg' => 'Thêm mới thành công.'
@@ -65,19 +73,21 @@ class MovieController extends Controller {
     /**
      * Display the specified resource.
      */
-    public function show(string $id) {
+    public function show(string $id)
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id) {
+    public function edit(string $id)
+    {
         $movie = Movie::findOrFail($id);
         $categories = Category::orderBy('created_at', 'desc')->get() ?? [];
         $countries = Country::orderBy('created_at', 'desc')->get() ?? [];
         $genres = Genre::orderBy('created_at', 'desc')->get() ?? [];
-
+       
         $dataView = [
             'title_page' => 'Chỉnh sửa phim',
             'movie' => $movie,
@@ -92,7 +102,8 @@ class MovieController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update(MovieRequest $request, string $id) {
+    public function update(MovieRequest $request, string $id)
+    {
         try {
             $movie = Movie::findOrFail($id);
             $movie->update($request->all());
@@ -111,7 +122,8 @@ class MovieController extends Controller {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id) {
+    public function destroy(string $id)
+    {
         try {
             $movie = Movie::findOrFail($id);
             $movie->delete();

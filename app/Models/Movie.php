@@ -10,7 +10,7 @@ class Movie extends Model {
 
     protected $table = 'movies';
 
-    protected $guarded = [];
+    protected $guarded = [''];
 
 
     public function category() {

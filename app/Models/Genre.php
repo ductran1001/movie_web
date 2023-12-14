@@ -11,6 +11,6 @@ class Genre extends Model
 
     protected $table = 'genres';
 
-    protected $guarded = [];
+    protected $guarded = [''];
 
 }

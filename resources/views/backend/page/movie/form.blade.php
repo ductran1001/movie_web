@@ -3,6 +3,7 @@
     $title = isset($movie) ? $movie['title'] : '';
     $slug = isset($movie) ? $movie['slug'] : '';
     $description = isset($movie) ? $movie['description'] : '';
+    $content = isset($movie) ? $movie['content'] : '';
     $index = route('admin.movies.index');
     $create = route('admin.movies.create');
 @endphp
@@ -34,6 +35,11 @@
                 <div class="col-12">
                     <label for="description" class="form-label">Mô tả ngắn</label>
                     <textarea class="form-control" name="description" id="description" placeholder="Nhập mô tả ngắn...">{{ $description }}</textarea>
+                </div>
+
+                <div class="col-12">
+                    <label for="content" class="form-label">Nội dung</label>
+                    <textarea class="form-control" name="content" id="content" placeholder="Nhập mô nội dung...">{{ $content }}</textarea>
                 </div>
             </div>
 
@@ -77,12 +83,13 @@
             </div>
 
             <div class="input-group mt-4">
-                <span class="input-group-btn">
-                    <a id="lfm" data-input="thumbnail" data-preview="holder_photo" class="btn btn-primary">
-                        <i class="fa fa-picture-o"></i> Hình ảnh
+                <span style="width: 36%" class="input-group-btn">
+                    <a id="lfm" style="width: 100%" data-input="thumbnail" data-preview="holder_photo"
+                        class="btn btn-primary">
+                        <i class="fa fa-picture-o"></i> Ảnh đại diện
                     </a>
                 </span>
-                <input style="width: 73%" readonly value="{{ isset($movie['thumbnail']) ? $movie['thumbnail'] : '' }}"
+                <input style="width: 64%" readonly value="{{ isset($movie['thumbnail']) ? $movie['thumbnail'] : '' }}"
                     id="thumbnail" class="form-control" type="text" name="thumbnail">
             </div>
             @if (isset($movie['thumbnail']))
@@ -94,12 +101,34 @@
                 <div id="holder_photo" style="margin-top:15px;max-height:100px;">
                 </div>
             @endif
+
+            <div class="input-group mt-3">
+                <span style="width: 36%" class="input-group-btn">
+                    <a id="lfms" style="width: 100%" data-input="abums" data-preview="holder_photos"
+                        class="btn btn-primary">
+                        <i class="fa fa-picture-o"></i> Ảnh abums
+                    </a>
+                </span>
+                <input style="width: 64%" readonly value="{{ isset($movie['abums']) ? $movie['abums'] : '' }}"
+                    id="abums" class="form-control" type="text" name="abums">
+            </div>
+            @if (isset($movie['abums']))
+                <div id="holder_photos" style="margin-top:15px;max-height:100px;">
+                    @foreach (json_decode($movie['abums']) as $abum)
+                        <img src="{{ $abum }}" alt="abums"
+                            style="width: 80px;height: 80px; object-fit: cover; margin-right: 5px;" />
+                    @endforeach
+                </div>
+            @else
+                <div id="holder_photos" style="margin-top:15px;max-height:100px;">
+                </div>
+            @endif
         </div>
     </div>
 
     <div class="col-md-7 col-lg-8 mt-lg-0 d-flex g-5 justify-content-between">
-        <button name="save" value="{{ $index }}" style="{{ isset($movie) ? 'width: 100%' : 'width: 48%' }}"
-            class="btn btn-primary btn-lg">
+        <button name="save" value="{{ $index }}"
+            style="{{ isset($movie) ? 'width: 100%' : 'width: 48%' }}" class="btn btn-primary btn-lg">
             Lưu
         </button>
 
