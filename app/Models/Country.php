@@ -12,4 +12,9 @@ class Country extends Model
     protected $table = 'countries';
 
     protected $guarded = [''];
+
+    public function movies()
+    {
+        return $this->hasMany(Movie::class, 'category_id');
+    }
 }

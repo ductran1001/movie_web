@@ -1,4 +1,8 @@
-<header class="header header--static">
+@php
+    $classHeader = Request::is('/') ? 'header--hidden' : 'header--static';
+@endphp
+
+<header class="header {{ $classHeader }}">
     <div class="container">
         <div class="row">
             <div class="col-12">

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('thumbnail')->nullable();
             $table->text('abums')->nullable();
             $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('hot')->default(0);
             $table->integer('category_id');
             $table->integer('country_id');
             $table->integer('genre_id');
