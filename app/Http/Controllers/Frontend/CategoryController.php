@@ -16,19 +16,21 @@ class CategoryController extends Controller
 
     public function categorySlug($slug)
     {
+        $title_page = 'Danh mục phim';
         $category = Category::where('slug', $slug)->firstOrFail();
-        $categories = Category::orderBy('created_at', 'desc')->get() ?? [];
         $moviesInCategory = Movie::where('category_id', $category->id)
             ->orderBy('created_at', 'desc')
             ->get();
+
+        $categories = Category::orderBy('created_at', 'desc')->get() ?? [];
         $countries = Country::orderBy('created_at', 'desc')->get() ?? [];
         $genres = Genre::orderBy('created_at', 'desc')->get() ?? [];
 
         $dataView = [
-            'title_page' => 'Danh mục phim',
+            'title_page' => $title_page,
             'category' => $category,
-            'categories' => $categories,
             'moviesInCategory' => $moviesInCategory,
+            'categories' => $categories,
             'countries' => $countries,
             'genres' => $genres,
         ];

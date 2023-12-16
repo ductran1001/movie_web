@@ -20,6 +20,7 @@
                     <th scope="col">Tiêu đề</th>
                     <th scope="col">Mô tả ngắn</th>
                     <th scope="col">Trạng thái</th>
+                    <th scope="col">Hot</th>
                     <th scope="col">Danh mục</th>
                     <th scope="col">Quốc gia</th>
                     <th scope="col">Thể loại</th>
@@ -32,14 +33,15 @@
                     <tr>
                         <td class="align-middle">{{ $index + 1 }}</td>
                         <td class="d-flex gap-3">
-                            <img style="width: 80px;object-fit:cover;border-radius: 50%;" src="{{ $movie['thumbnail'] }}"
-                                alt="{{ $movie['title'] }}">
+                            <img style="width: 60px;height: 60px; object-fit:cover;border-radius: 50%;"
+                                src="{{ $movie['thumbnail'] }}" alt="{{ $movie['title'] }}">
                             <span class="my-auto">
                                 {{ $movie['title'] }}
                             </span>
                         </td>
                         <td class="align-middle">{{ $movie['description'] ?? '[N/A]' }} </td>
                         <td class="align-middle">{{ $movie['status'] == 1 ? 'hiển thị' : 'không hiển thị' }} </td>
+                        <td class="align-middle">{{ $movie['hot'] == 1 ? 'có' : 'không' }} </td>
                         <td class="align-middle">{{ $movie['category']['title'] }} </td>
                         <td class="align-middle">{{ $movie['country']['title'] }} </td>
                         <td class="align-middle">{{ $movie['genre']['title'] }} </td>

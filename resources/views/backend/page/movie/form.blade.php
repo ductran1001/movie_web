@@ -3,6 +3,7 @@
     $title = isset($movie) ? $movie['title'] : '';
     $slug = isset($movie) ? $movie['slug'] : '';
     $status = isset($movie) ? $movie['status'] : 1;
+    $hot = isset($movie) ? $movie['hot'] : 1;
     $description = isset($movie) ? $movie['description'] : '';
     $content = isset($movie) ? $movie['content'] : '';
     $index = route('admin.movies.index');
@@ -37,15 +38,35 @@
                     <label class="form-label">
                         Trạng thái
                     </label>
-                    <div class="form-check">
-                        <input {{ $status == 1 ? 'checked' : '' }} name="status" id="check" value="1"
-                            type="radio" class="form-check-input">
-                        <label for="check" class="form-check-label">Hiển thị</label>
+                    <div class="d-flex gap-5">
+                        <div class="form-check" style="min-width: 70px">
+                            <input {{ $status == 1 ? 'checked' : '' }} name="status" id="active" value="1"
+                                type="radio" class="form-check-input">
+                            <label for="active" class="form-check-label">Hiển thị</label>
+                        </div>
+                        <div class="form-check">
+                            <input {{ $status == 0 ? 'checked' : '' }} name="status" id="unactive" value="0"
+                                type="radio" class="form-check-input">
+                            <label class="form-check-label" for="unactive">Không hiển thị</label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input {{ $status == 0 ? 'checked' : '' }} name="status" id="uncheck" value="0"
-                            type="radio" class="form-check-input">
-                        <label class="form-check-label" for="uncheck">Không hiển thị</label>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">
+                        Phim hot
+                    </label>
+                    <div class="d-flex gap-5">
+                        <div class="form-check" style="min-width: 70px">
+                            <input {{ $hot == 1 ? 'checked' : '' }} name="hot" id="hot" value="1"
+                                type="radio" class="form-check-input">
+                            <label for="hot" class="form-check-label">Có</label>
+                        </div>
+                        <div class="form-check">
+                            <input {{ $hot == 0 ? 'checked' : '' }} name="hot" id="unhot" value="0"
+                                type="radio" class="form-check-input">
+                            <label class="form-check-label" for="unhot">Không</label>
+                        </div>
                     </div>
                 </div>
 
@@ -106,8 +127,9 @@
                         <i class="fa fa-picture-o"></i> Ảnh đại diện
                     </a>
                 </span>
-                <input style="width: 64%" readonly value="{{ isset($movie['thumbnail']) ? $movie['thumbnail'] : '' }}"
-                    id="thumbnail" class="form-control" type="text" name="thumbnail">
+                <input style="width: 64%" readonly
+                    value="{{ isset($movie['thumbnail']) ? $movie['thumbnail'] : '' }}" id="thumbnail"
+                    class="form-control" type="text" name="thumbnail">
             </div>
             @if (isset($movie['thumbnail']))
                 <div id="holder_photo" style="margin-top:15px;max-height:100px;">
