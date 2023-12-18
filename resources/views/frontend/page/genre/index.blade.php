@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12 col-xl-6">
                     <h1 class="section__title section__title--head">
-                        {{ $country['title'] }}
+                        {{ $genre['title'] }}
                     </h1>
                 </div>
 
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="row row--grid">
-                        @foreach ($moviesInCountry as $movie)
+                        @foreach ($moviesInGenre as $movie)
                             <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
                                 <div class="card">
                                     <a href="{{ route('movie.slug', $movie['slug']) }}" class="card__cover">

@@ -22,6 +22,8 @@ $(function () {
             success: function (response) {
                 if (actionNext.includes('create')) {
                     doForm.trigger("reset");
+                    $("#holder_photo").remove(); 
+                    $("#holder_photos").remove(); 
                 } else {
                     window.location.href = actionNext;
                 }
