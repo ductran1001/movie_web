@@ -22,8 +22,8 @@ $(function () {
             success: function (response) {
                 if (actionNext.includes('create')) {
                     doForm.trigger("reset");
-                    $("#holder_photo").remove(); 
-                    $("#holder_photos").remove(); 
+                    $("#holder_photo").remove();
+                    $("#holder_photos").remove();
                 } else {
                     window.location.href = actionNext;
                 }
@@ -37,7 +37,7 @@ $(function () {
 });
 
 const handleFormErrors = (response) => {
-    if (response.responseJSON.errors) {
+    if (response.responseJSON?.errors) {
         const errors = response.responseJSON.errors;
         for (const error in errors) {
             const inputId = `#${error}`;
@@ -50,7 +50,7 @@ const handleFormErrors = (response) => {
             $(inputId).addClass('is-invalid');
         }
     } else {
-        toastr.error(response.responseJSON.msg || 'Something went wrong');
+        toastr.error(response.responseJSON?.msg || 'Có lỗi xảy ra thử lại sau!');
     }
 };
 

@@ -87,7 +87,7 @@ class MovieController extends Controller
         $categories = Category::orderBy('created_at', 'desc')->get() ?? [];
         $countries = Country::orderBy('created_at', 'desc')->get() ?? [];
         $genres = Genre::orderBy('created_at', 'desc')->get() ?? [];
-       
+
         $dataView = [
             'title_page' => 'Chỉnh sửa phim',
             'movie' => $movie,

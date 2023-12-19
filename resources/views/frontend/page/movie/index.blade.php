@@ -24,7 +24,9 @@
 
                         <!-- article content -->
                         <div class="article__content">
-                            <h1>The Fast and the Furious</h1>
+                            <h1>
+                                {{$movie['title']}}
+                            </h1>
 
                             <ul class="list">
                                 <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -37,10 +39,9 @@
                                 <li>16+</li>
                             </ul>
 
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a
-                                page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English.</p>
+                            <p>
+                                {!! $movie['content'] !!}
+                            </p>
                         </div>
                         <!-- end article content -->
                     </div>
