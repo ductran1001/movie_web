@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class CountrySeeder extends Seeder
 {
@@ -17,13 +18,13 @@ class CountrySeeder extends Seeder
     {
         $array = [
             [
-                'title' => 'Việt Nam',
+                'title' => 'Việt nam',
             ],
             [
-                'title' => 'Nhật Bản',
+                'title' => 'Nhật bản',
             ],
             [
-                'title' => 'Hàn Quốc',
+                'title' => 'Hàn quốc',
             ],
             [
                 'title' => 'Mỹ',
@@ -32,7 +33,9 @@ class CountrySeeder extends Seeder
 
         foreach ($array as $arr) {
             $arr['slug'] = Str::slug($arr['title']); 
-            DB::table('categories')->insert($arr);
+            $arr['created_at'] = Carbon::now();
+            $arr['status'] = rand(0, 1);
+            DB::table('countries')->insert($arr);
         }
     }
 }
