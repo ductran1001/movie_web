@@ -44,7 +44,6 @@
         }
     </style>
 
-
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.0/examples/dashboard/dashboard.css" rel="stylesheet">
 

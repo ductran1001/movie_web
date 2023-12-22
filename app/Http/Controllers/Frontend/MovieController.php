@@ -21,16 +21,22 @@ class MovieController extends Controller
         $countries = Country::orderBy('created_at', 'desc')->get() ?? [];
         $genres = Genre::orderBy('created_at', 'desc')->get() ?? [];
 
-        $movie = Movie::where('slug', $slug)->firstOrFail();
+        try {
+            $movie = Movie::where('slug', $slug)
+                ->with('category', 'genre', 'country')
+                ->firstOrFail();
 
-        $dataView = [
-            'title_page' => $title_page,
-            'categories' => $categories,
-            'countries' => $countries,
-            'genres' => $genres,
-            'movie' => $movie,
-        ];
+            $dataView = [
+                'title_page' => $title_page,
+                'categories' => $categories,
+                'countries' => $countries,
+                'genres' => $genres,
+                'movie' => $movie,
+            ];
 
-        return view("frontend.page.movie.index", $dataView);
+            return view("frontend.page.movie.index", $dataView);
+        } catch (\Exception $e) {
+            return abort(404);
+        }
     }
 }

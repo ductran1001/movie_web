@@ -25,7 +25,7 @@
                         <!-- article content -->
                         <div class="article__content">
                             <h1>
-                                {{$movie['title']}}
+                                {{ $movie['title'] }}
                             </h1>
 
                             <ul class="list">
@@ -140,7 +140,8 @@
 
                                     <div class="series">
                                         <a href="details.html" class="series__cover">
-                                            <img src="https://flixtv.volkovdesign.com/main/img/series/3.jpg" alt="">
+                                            <img src="https://flixtv.volkovdesign.com/main/img/series/3.jpg"
+                                                alt="">
                                             <span>
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +159,8 @@
 
                                     <div class="series">
                                         <a href="details.html" class="series__cover">
-                                            <img src="https://flixtv.volkovdesign.com/main/img/series/4.jpg" alt="">
+                                            <img src="https://flixtv.volkovdesign.com/main/img/series/4.jpg"
+                                                alt="">
                                             <span>
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +178,8 @@
 
                                     <div class="series">
                                         <a href="details.html" class="series__cover">
-                                            <img src="https://flixtv.volkovdesign.com/main/img/series/5.jpg" alt="">
+                                            <img src="https://flixtv.volkovdesign.com/main/img/series/5.jpg"
+                                                alt="">
                                             <span>
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -194,7 +197,8 @@
 
                                     <div class="series">
                                         <a href="details.html" class="series__cover">
-                                            <img src="https://flixtv.volkovdesign.com/main/img/series/6.jpg" alt="">
+                                            <img src="https://flixtv.volkovdesign.com/main/img/series/6.jpg"
+                                                alt="">
                                             <span>
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -233,14 +237,14 @@
                     <!-- end series -->
 
                     <div class="col-12 col-xl-8">
-                        <!-- categories -->
+                        <!-- Genres -->
                         <div class="categories">
-                            <h3 class="categories__title">Genres</h3>
-                            <a href="category.html" class="categories__item">Action</a>
-                            <a href="category.html" class="categories__item">Thriller</a>
-                            <a href="category.html" class="categories__item">Crime</a>
+                            <h3 class="categories__title">Thể loại</h3>
+                            <a href="{{ route('genre.slug', $movie->genre->slug) }}" class="categories__item">
+                                {{ $movie->genre->title }}
+                            </a>
                         </div>
-                        <!-- end categories -->
+                        <!-- end Genres -->
 
                         <!-- share -->
                         <div class="share">
@@ -297,7 +301,9 @@
                                     <ul class="comments__list">
                                         <li class="comments__item">
                                             <div class="comments__autor">
-                                                <img class="comments__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="comments__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="comments__name">Brian Cranston</span>
                                                 <span class="comments__time">30.08.2021, 17:53</span>
                                             </div>
@@ -356,7 +362,9 @@
 
                                         <li class="comments__item comments__item--answer">
                                             <div class="comments__autor">
-                                                <img class="comments__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="comments__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="comments__name">Jesse Plemons</span>
                                                 <span class="comments__time">24.08.2021, 16:41</span>
                                             </div>
@@ -414,7 +422,9 @@
 
                                         <li class="comments__item comments__item--quote">
                                             <div class="comments__autor">
-                                                <img class="comments__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="comments__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="comments__name">Matt Jones</span>
                                                 <span class="comments__time">11.08.2021, 11:11</span>
                                             </div>
@@ -476,7 +486,9 @@
 
                                         <li class="comments__item">
                                             <div class="comments__autor">
-                                                <img class="comments__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="comments__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="comments__name">Tess Harper</span>
                                                 <span class="comments__time">07.08.2021, 14:33</span>
                                             </div>
@@ -535,7 +547,9 @@
 
                                         <li class="comments__item">
                                             <div class="comments__autor">
-                                                <img class="comments__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="comments__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="comments__name">Jonathan Banks</span>
                                                 <span class="comments__time">02.08.2021, 15:24</span>
                                             </div>
@@ -642,7 +656,9 @@
                                     <ul class="reviews__list">
                                         <li class="reviews__item">
                                             <div class="reviews__autor">
-                                                <img class="reviews__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="reviews__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="reviews__name">Best Marvel movie in my opinion</span>
                                                 <span class="reviews__time">24.08.2021, 17:53 by Jonathan Banks</span>
                                                 <span class="reviews__rating"><svg xmlns="http://www.w3.org/2000/svg"
@@ -660,7 +676,9 @@
 
                                         <li class="reviews__item">
                                             <div class="reviews__autor">
-                                                <img class="reviews__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="reviews__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="reviews__name">Best Marvel movie in my opinion</span>
                                                 <span class="reviews__time">24.08.2021, 17:53 by Jesse Plemons</span>
                                                 <span class="reviews__rating"><svg xmlns="http://www.w3.org/2000/svg"
@@ -678,7 +696,9 @@
 
                                         <li class="reviews__item">
                                             <div class="reviews__autor">
-                                                <img class="reviews__avatar" src="https://flixtv.volkovdesign.com/main/img/avatar.svg" alt="">
+                                                <img class="reviews__avatar"
+                                                    src="https://flixtv.volkovdesign.com/main/img/avatar.svg"
+                                                    alt="">
                                                 <span class="reviews__name">Best Marvel movie in my opinion</span>
                                                 <span class="reviews__time">24.08.2021, 17:53 by Charles Baker</span>
                                                 <span class="reviews__rating"><svg xmlns="http://www.w3.org/2000/svg"
@@ -926,7 +946,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/7.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/7.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -960,7 +981,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/8.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/8.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -994,7 +1016,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/9.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/9.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1028,7 +1051,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/13.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/13.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1062,7 +1086,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/14.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/14.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1096,7 +1121,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/17.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/17.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1130,7 +1156,8 @@
                                     <div class="owl-item active" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/1.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/1.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1164,7 +1191,8 @@
                                     <div class="owl-item active" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/2.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/2.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1198,7 +1226,8 @@
                                     <div class="owl-item active" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/3.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/3.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1232,7 +1261,8 @@
                                     <div class="owl-item active" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/4.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/4.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1266,7 +1296,8 @@
                                     <div class="owl-item active" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/5.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/5.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1301,7 +1332,8 @@
                                     <div class="owl-item active" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/6.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/6.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1335,7 +1367,8 @@
                                     <div class="owl-item" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/7.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/7.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1369,7 +1402,8 @@
                                     <div class="owl-item" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/8.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/8.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1403,7 +1437,8 @@
                                     <div class="owl-item" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/9.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/9.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1437,7 +1472,8 @@
                                     <div class="owl-item" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/13.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/13.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1471,7 +1507,8 @@
                                     <div class="owl-item" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/14.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/14.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1505,7 +1542,8 @@
                                     <div class="owl-item" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/17.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/17.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1539,7 +1577,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/1.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/1.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1573,7 +1612,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/2.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/2.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1607,7 +1647,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/3.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/3.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1641,7 +1682,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/4.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/4.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1675,7 +1717,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/5.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/5.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1710,7 +1753,8 @@
                                     <div class="owl-item cloned" style="width: 191.663px; margin-right: 30px;">
                                         <div class="card">
                                             <a href="details.html" class="card__cover">
-                                                <img src="https://flixtv.volkovdesign.com/main/img/card/6.png" alt="">
+                                                <img src="https://flixtv.volkovdesign.com/main/img/card/6.png"
+                                                    alt="">
                                                 <svg width="22" height="22" viewBox="0 0 22 22"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
