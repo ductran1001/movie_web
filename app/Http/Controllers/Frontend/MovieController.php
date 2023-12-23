@@ -26,12 +26,19 @@ class MovieController extends Controller
                 ->with('category', 'genre', 'country')
                 ->firstOrFail();
 
+            $relatedMovies = Movie::where('category_id', $movie->category->id)
+                ->where('id', '!=', $movie->id)
+                ->with('category', 'genre', 'country')
+                ->take(5)
+                ->get();
+
             $dataView = [
                 'title_page' => $title_page,
                 'categories' => $categories,
                 'countries' => $countries,
                 'genres' => $genres,
                 'movie' => $movie,
+                'relatedMovies' => $relatedMovies,
             ];
 
             return view("frontend.page.movie.index", $dataView);

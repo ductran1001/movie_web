@@ -6,6 +6,7 @@ $(function () {
         let type = doForm.attr('method');
         let actionNext = doForm.find("button:focus").val();
         let elements = $(".text-danger, .is-invalid");
+        let summernoteInstance = $('#content');
 
         let selectedStatus = $('input[name="status"]:checked').val();
 
@@ -24,6 +25,9 @@ $(function () {
                     doForm.trigger("reset");
                     $("#holder_photo").remove();
                     $("#holder_photos").remove();
+                    if (summernoteInstance) {
+                        summernoteInstance.summernote('code', '');
+                    }
                 } else {
                     window.location.href = actionNext;
                 }
